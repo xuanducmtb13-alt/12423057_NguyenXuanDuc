@@ -1,18 +1,27 @@
-# app/predict.py
 import pandas as pd
-from preprocess import preprocess
-from utils import load_model, get_metrics
+import joblib
 
-# Load data mới để predict
-df_new = pd.read_csv('app/data/student_performance_new.csv')
-df_new, numeric_cols, scaler = preprocess(df_new)
+def predict(new_data):
+    # Load model & features
+    model = joblib.load("../models/rf_exam_score_model.joblib")
+    feature_cols = joblib.load("../models/feature_columns.joblib")
+    
+    # Chuyển new_data sang DataFrame
+    df = pd.DataFrame([new_data])
+    df = df[feature_cols]  # đảm bảo thứ tự cột
 
-X_new = df_new.drop("ExamScore", axis=1, errors='ignore')
+    prediction = model.predict(df)
+    return prediction[0]
 
-# Load model
-lr_model = load_model('models/lr_model.pkl')
-
-# Predict
-y_pred = lr_model.predict(X_new)
-df_new["Predicted_ExamScore"] = y_pred
-print(df_new.head())
+# Ví dụ dùng
+if __name__ == "__main__":
+    sample_input = {
+        "StudyHours": 10, "Attendance": 0.9, "Resources": 0.8,
+        "Motivation": 0.7, "Age": 17, "OnlineCourses": 1,
+        "AssignmentCompletion": 1, "Extracurricular": 1,
+        "Internet": 1, "Gender": 0, "Discussions": 1, "EduTech": 1,
+        # Các cột one-hot cho categorical nếu có
+        # ví dụ "LearningStyle_Visual": 1, "StressLevel_High": 0, ...
+    }
+    score = predict(sample_input)
+    print("Predicted ExamScore:", score)
