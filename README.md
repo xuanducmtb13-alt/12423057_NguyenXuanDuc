@@ -25,8 +25,10 @@ Evaluate models using metrics suitable for regression tasks
 
 Implement a training and prediction (inference) pipeline
 
-## 2️. Dataset Overview (Student Performance Dataset)
+## 2️. Dataset Overview (Student Performance Dataset) 
 ### 2.1 Data Source
+Link : https://www.kaggle.com/datasets/adilshamim8/student-performance-and-learning-style
+
 The dataset is collected from student surveys and records, including information on learning habits, extracurricular activities, personal characteristics, and final exam scores.
 
 ⚠️ For student privacy reasons, the dataset is not included on GitHub. Instructions for downloading and using the dataset are provided in data/README.md.
@@ -169,7 +171,7 @@ Sao chép mã
 python demo/app.py
 # 8️. Project Directory Structure
 kotlin
-Sao chép mã
+```
 StudentScorePrediction/
 ├── app/
 │   ├── __init__.py
@@ -187,9 +189,11 @@ StudentScorePrediction/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
+```
 # 9️. Author
 Name: [Nguyễn Xuân Đức]
 
 Student ID: [12423057]
 
 Class: [124231]
+
