@@ -137,8 +137,6 @@ Decision Tree Regressor: nonlinear, intuitive
 
 Random Forest Regressor: ensemble, reduces overfitting
 
-Gradient Boosting / LightGBM: powerful, often produces best results
-
 The best-performing model will be saved and used for inference.
 
 # 6️. Model Evaluation Metrics
@@ -196,4 +194,5 @@ Name: [Nguyễn Xuân Đức]
 Student ID: [12423057]
 
 Class: [124231]
+
 
